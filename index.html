@@ -40,8 +40,8 @@
     [[fight]] 
     [[flee|main]] ]  
 ]
-</tw-passagedata><tw-passagedata pid="5" name="dead" tags="" position="77,841" size="100,100">You are dead! [[restart?|init]]
-</tw-passagedata><tw-passagedata pid="6" name="monster is dead" tags="" position="617,819" size="100,100">(set: $streak to $streak + 1) 
+&lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/e8SWRAr0O8Q?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="5" name="dead" tags="" position="77,841" size="100,100">Your adventure ended after $days days.
+[[revive?|init]]</tw-passagedata><tw-passagedata pid="6" name="monster is dead" tags="" position="617,819" size="100,100">(set: $streak to $streak + 1) 
 (set: $drop to (random: 3,10) * $streak) 
 (set: $spoils to $spoils + $drop) 
 You collect $drop coins from the monster carcass!  Your spoils are currently $spoils coins and your health is $hp. You&#39;ve killed $streak monster(if: not($streak is 1))[s] on this adventure.
@@ -49,26 +49,26 @@ You collect $drop coins from the monster carcass!  Your spoils are currently $sp
 [[go home|collect spoils]]</tw-passagedata><tw-passagedata pid="7" name="rest" tags="" position="252,426" size="100,100">(set: $days to $days + 1) 
 (if: (either: 0, 1, 2, 3) is 0)[  
 You had a nightmare and couldn&#39;t sleep.
+&lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/Mq8E_1LkoAc?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
   (set: $hp to $hp - (either: 1,2,3)) 
   (if: $hp &lt; 1)[ You are [[dead]]!]
   (display: &quot;main&quot;)]
-  
 (else-if: (either: 0, 1, 2, 3) is 1)[  
   You were attacked in your sleep! 
+  &lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/e8SWRAr0O8Q?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
   (set: $hp to $hp - (either: 1,2,3))  
   (if: $hp &lt; 1)[ You are [[dead]]! ]  
   (else:)[ Your health is $hp. 
-    [[fight|fight]] 
-    [[flee|main]] ]  
+    [[fight-&gt;fight]] 
+    [[flee-&gt;main]] ]  
 ]
-
-  
   (else:)[ 
   You slept like a log. You feel refreshed.
+  &lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/l4hnR1_rbuI?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
   (set: $hp to 10)
   (display: &quot;main&quot;)
     ]  
-
+	
 </tw-passagedata><tw-passagedata pid="8" name="start adventure" tags="" position="746,230" size="100,100">(set: $spoils to 0) (set: $streak to 0) 
 (display: &quot;adventure&quot;)</tw-passagedata><tw-passagedata pid="9" name="shop" tags="" position="773,462" size="100,100">Your current weapon is a (print: $weapon&#39;s id).
 
