@@ -23,7 +23,7 @@
 
 [[fight]] 
 [[flee-&gt;main]]
-&lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/e8SWRAr0O8Q?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="4" name="fight" tags="" position="298,697" size="100,100">(if: (either: 0, 1) is 0)[  
+&lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/e8SWRAr0O8Q?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="4" name="fight" tags="" position="299,696" size="100,100">(if: (either: 0, 1) is 0)[  
   The kobold lunges with its spear! 
   &lt;img src=&quot;media/images/attack_kobold.gif&quot; alt=&quot;Kobold with spear attacking&quot; style=&quot;display: block; margin-right:auto; width:50%&quot;&gt;[Art by: rvros]
   (set: $hp to $hp - (either: 1,2,3))  
@@ -53,7 +53,7 @@ You collect $drop coins from the kobold&#39;s purse!  Your spoils are currently 
 [[continue|adventure]] 
 [[go home|collect spoils]]
 
-&lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/-YCN-a0NsNk?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="7" name="rest" tags="" position="252,426" size="100,100">(set: $days to $days + 1) 
+&lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/-YCN-a0NsNk?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="7" name="rest" tags="" position="255,427" size="100,100">(set: $days to $days + 1) 
 (if: (either: 0, 1, 2, 3) is 0)[  
 You had a nightmare and couldn&#39;t sleep.
 &lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/Mq8E_1LkoAc?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
@@ -62,6 +62,7 @@ You had a nightmare and couldn&#39;t sleep.
   (display: &quot;main&quot;)]
 (else-if: (either: 0, 1, 2, 3) is 1)[  
   You were attacked in your sleep! 
+  &lt;img src=&quot;media/images/attack_kobold.gif&quot; alt=&quot;Kobold attacking with spear&quot;&gt;
   &lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/e8SWRAr0O8Q?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
   (set: $hp to $hp - (either: 1,2,3))  
   (if: $hp &lt; 1)[ You are [[dead]]! ]  
@@ -72,12 +73,10 @@ You had a nightmare and couldn&#39;t sleep.
   (else:)[ 
   You slept like a log. You feel refreshed.
   &lt;img src=&quot;media/images/campfire.gif&quot;&gt;
-  &lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/l4hnR1_rbuI?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+ 
   (set: $hp to $max_hp)
   (display: &quot;main&quot;)
-    ]  
-	
-</tw-passagedata><tw-passagedata pid="8" name="start adventure" tags="" position="746,230" size="100,100">(set: $spoils to 0) (set: $streak to 0) 
+    ]</tw-passagedata><tw-passagedata pid="8" name="start adventure" tags="" position="746,230" size="100,100">(set: $spoils to 0) (set: $streak to 0) 
 (display: &quot;adventure&quot;)</tw-passagedata><tw-passagedata pid="9" name="shop" tags="" position="774,462" size="100,100">Your current weapon is a (print: $weapon&#39;s id).(set: $next_weapon to $weapon&#39;s next)(if: not ($next_weapon is 0))[(set: $nwn to $next_weapon&#39;s id)
 
 (if: $weapon&#39;s id is &quot;big sword&quot;)[Khajit haz no wares, come back later] (else:)[Welcome adventurer! Khajit haz wares, if you haz coin]
