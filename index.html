@@ -33,7 +33,7 @@
     [[flee|main]] ]  
 ]
 (else:)[ You attack the kobold with your (print: $weapon&#39;s id)!
-&lt;img src=&quot;media/images/adventurer_attack.gif&quot; alt=&quot;Adventurer attacking with sword&quot; style=&quot;display: block; margin-left:auto; margin-left: auto; width:50%&quot;&gt;&lt;img src=&quot;media/images/hurt_kobold.gif&quot; alt=&quot;Kobold hurting&quot; style=&quot;display: block; margin-right:auto; width:50%&quot;&gt;[Art by: rvros]
+&lt;img src=&quot;media/images/adventurer_attack.gif&quot; alt=&quot;Adventurer attacking with sword&quot; style=&quot;display: block; width:50%&quot;&gt;&lt;img src=&quot;media/images/hurt_kobold.gif&quot; alt=&quot;Kobold hurting&quot; style=&quot;display: block; width:50%&quot;&gt;[Art by: rvros]
   (set:$monster_hp = $monster_hp - ($weapon&#39;s damage))
   (if: $monster_hp &lt; 1)[ The [[kobold is dead]]! ]  
   (else:)[    
@@ -49,7 +49,7 @@
 You collect $drop coins from the kobold&#39;s purse!  Your spoils are currently $spoils coins and your health is $hp. You&#39;ve killed $streak kobold(if: not($streak is 1))[s] on this adventure.
 (else-if: $streak is 3)[You feel invigorated.](set: $max_hp to $max_hp + 1)(else:)[You feel your resilience deepen.](set: $max_hp to $max_hp + 2)
 
-&lt;img src=&quot;media/images/adventurer_idle.gif&quot; alt=&quot;Adventurer waiting&quot; style=&quot;display: block; margin-left: auto; width:50%&quot;&gt;&lt;img src=&quot;media/images/dead_kobold.gif&quot; alt=&quot;Kobold dead&quot; style=&quot;display: block; margin-right:auto; width:50%&quot;&gt;[Art by: rvros]
+&lt;img src=&quot;media/images/adventurer_idle.gif&quot; alt=&quot;Adventurer waiting&quot; style=&quot;display: block; width:50%&quot;&gt;&lt;img src=&quot;media/images/dead_kobold.gif&quot; alt=&quot;Kobold dead&quot; style=&quot;display: block; width:50%&quot;&gt;[Art by: rvros]
 
 [[continue|adventure]] 
 [[go home|collect spoils]]
