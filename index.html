@@ -9,45 +9,52 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play selude.</tw-noscript></noscript></tw-story>
-<tw-storydata name="selude" startnode="1" creator="Twine" creator-version="2.3.13" ifid="C446ACAE-3039-400C-A48C-7BD2F67E419E" zoom="1" format="Harlowe" format-version="3.2.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="init" tags="" position="65,257" size="100,100">(set: $hp to 10) 
-(set: $coins to 10) 
-(set: $days to 0)
-(set: $big_sword to (datamap: &quot;id&quot;, &quot;big sword&quot;, &quot;cost&quot;, 50, &quot;damage&quot;, 5, &quot;next&quot;, 0))
-(set: $small_sword to (datamap: &quot;id&quot;, &quot;small sword&quot;, &quot;cost&quot;, 30, &quot;damage&quot;, 3, &quot;next&quot;, $big_sword))
-(set: $dagger to (datamap: &quot;id&quot;, &quot;dagger&quot;, &quot;cost&quot;, 10, &quot;damage&quot;, 1, &quot;next&quot;, $small_sword))
+<tw-storydata name="selude" startnode="1" creator="Twine" creator-version="2.3.13" ifid="C446ACAE-3039-400C-A48C-7BD2F67E419E" zoom="1" format="Harlowe" format-version="3.2.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="init" tags="" position="65,257" size="100,100">(set: $max_hp to 10)(set: $hp to 10) (set: $coins to 10) (set: $days to 0)(set: $big_sword to (datamap: &quot;id&quot;, &quot;big sword&quot;, &quot;cost&quot;, 50, &quot;damage&quot;, 5, &quot;next&quot;, 0))(set: $small_sword to (datamap: &quot;id&quot;, &quot;small sword&quot;, &quot;cost&quot;, 30, &quot;damage&quot;, 3, &quot;next&quot;, $big_sword))(set: $dagger to (datamap: &quot;id&quot;, &quot;dagger&quot;, &quot;cost&quot;, 10, &quot;damage&quot;, 1, &quot;next&quot;, $small_sword))(set: $weapon to $dagger)
+(display: &quot;main&quot;)</tw-passagedata><tw-passagedata pid="2" name="main" tags="" position="515,223" size="100,100">You&#39;ve been adventuring with your necromancer for $days days. You have $coins coins and your health is $hp. 
 
-(set: $weapon to $dagger)
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/kIvzj_tvz_I?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
-(display: &quot;main&quot;)</tw-passagedata><tw-passagedata pid="2" name="main" tags="" position="516,222" size="100,100">You&#39;ve been adventuring for $days days. You have $coins coins and your health is $hp. 
-[[rest]]
 [[adventure-&gt;start adventure]]
+[[rest]]
 [[shop]]
-[[credits]]</tw-passagedata><tw-passagedata pid="3" name="adventure" tags="" position="515,475" size="100,100">A monster appears! (set: $monster_hp to (either: 2,3,4,5)) 
+[[credits]]</tw-passagedata><tw-passagedata pid="3" name="adventure" tags="" position="516,475" size="100,100">A kobold appears! (set: $monster_hp to (either: 2,3,4)) 
+
+&lt;img src=&quot;media/images/Idle_kobold.gif&quot; alt=&quot;Kobold with spear standing waiting&quot; style=&quot;display: block; margin-right:auto; width:50%&quot;&gt;[Art by: rvros]
+
 [[fight]] 
 [[flee-&gt;main]]
 &lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/e8SWRAr0O8Q?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="4" name="fight" tags="" position="297,696" size="100,100">(if: (either: 0, 1) is 0)[  
-  The monster bites you! 
+  The kobold lunges with its spear! 
+  &lt;img src=&quot;media/images/attack_kobold.gif&quot; alt=&quot;Kobold with spear attacking&quot; style=&quot;display: block; margin-right:auto; width:50%&quot;&gt;[Art by: rvros]
   (set: $hp to $hp - (either: 1,2,3))  
   (if: $hp &lt; 1)[ You are [[dead]]! ]  
   (else:)[ Its health is $monster_hp. Your health falls to $hp. 
     [[fight]] 
     [[flee|main]] ]  
 ]
-(else:)[ You attack the monster with your (print: $weapon&#39;s id)!  
+(else:)[ You attack the kobold with your (print: $weapon&#39;s id)!
+&lt;img src=&quot;media/images/hurt_kobold.gif&quot; alt=&quot;Kobold hurting&quot; style=&quot;display: block; margin-right:auto; width:50%&quot;&gt;&lt;img src=&quot;media/images/adventurer_attack.gif&quot; alt=&quot;Adventurer attacking with sword&quot; style=&quot;display: block; margin-right:auto; margin-left: auto; width:50%&quot;&gt;[Art by: rvros]
   (set:$monster_hp = $monster_hp - ($weapon&#39;s damage))
-  (if: $monster_hp &lt; 1)[ The [[monster is dead]]! ]  
+  (if: $monster_hp &lt; 1)[ The [[kobold is dead]]! ]  
   (else:)[    
     Its health falls to $monster_hp. Your health is $hp.
     [[fight]] 
     [[flee|main]] ]  
-]
-&lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/e8SWRAr0O8Q?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="5" name="dead" tags="" position="77,841" size="100,100">Your adventure ended after $days days.
-[[revive?|init]]</tw-passagedata><tw-passagedata pid="6" name="monster is dead" tags="" position="617,819" size="100,100">(set: $streak to $streak + 1) 
+]</tw-passagedata><tw-passagedata pid="5" name="dead" tags="" position="77,841" size="100,100">Your adventure ended after $days days.
+[[revive?|init]]
+
+&lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/5vB7kSyuJ6U?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="6" name="kobold is dead" tags="" position="617,819" size="100,100">(set: $streak to $streak + 1) 
 (set: $drop to (random: 3,10) * $streak) 
 (set: $spoils to $spoils + $drop) 
-You collect $drop coins from the monster carcass!  Your spoils are currently $spoils coins and your health is $hp. You&#39;ve killed $streak monster(if: not($streak is 1))[s] on this adventure.
+You collect $drop coins from the kobold&#39;s purse!  Your spoils are currently $spoils coins and your health is $hp. You&#39;ve killed $streak kobold(if: not($streak is 1))[s] on this adventure.
+(else-if: $streak is 1)[You feel invigorated.](set: $max_hp to $max_hp + 1)(else:)[You feel your resilience deepen.](set: $max_hp to $max_hp + 2)
+
+&lt;img src=&quot;media/images/dead_kobold.gif&quot; alt=&quot;Kobold dead&quot; style=&quot;display: block; margin-right:auto; width:50%&quot;&gt;&lt;img src=&quot;media/images/adventurer_idle.gif&quot; alt=&quot;Adventurer waiting&quot; style=&quot;display: block; margin-left: auto; margin-right:auto; width:50%&quot;&gt;[Art by: rvros]
+
 [[continue|adventure]] 
-[[go home|collect spoils]]</tw-passagedata><tw-passagedata pid="7" name="rest" tags="" position="252,426" size="100,100">(set: $days to $days + 1) 
+[[go home|collect spoils]]
+
+&lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/-YCN-a0NsNk?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="7" name="rest" tags="" position="252,426" size="100,100">(set: $days to $days + 1) 
 (if: (either: 0, 1, 2, 3) is 0)[  
 You had a nightmare and couldn&#39;t sleep.
 &lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/Mq8E_1LkoAc?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
@@ -66,34 +73,55 @@ You had a nightmare and couldn&#39;t sleep.
   (else:)[ 
   You slept like a log. You feel refreshed.
   &lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/l4hnR1_rbuI?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-  (set: $hp to 10)
+  (set: $hp to $max_hp)
   (display: &quot;main&quot;)
     ]  
 	
 </tw-passagedata><tw-passagedata pid="8" name="start adventure" tags="" position="746,230" size="100,100">(set: $spoils to 0) (set: $streak to 0) 
-(display: &quot;adventure&quot;)</tw-passagedata><tw-passagedata pid="9" name="shop" tags="" position="773,462" size="100,100">Your current weapon is a (print: $weapon&#39;s id).
+(display: &quot;adventure&quot;)</tw-passagedata><tw-passagedata pid="9" name="shop" tags="" position="774,462" size="100,100">Your current weapon is a (print: $weapon&#39;s id).(set: $next_weapon to $weapon&#39;s next)(if: not ($next_weapon is 0))[(set: $nwn to $next_weapon&#39;s id)
 
 (if: $weapon&#39;s id is &quot;big sword&quot;)[Khajit haz no wares, come back later] (else:)[Welcome adventurer! Khajit haz wares, if you haz coin]
-&lt;img src=&quot;media/images/Khajiit_animation artist_Katia_Managan_pixel_art.gif&quot; alt=&quot;Khajit appearing and using invisible cloak by Katia Managan&quot; width=&quot;500&quot; height=&quot;600&quot;&gt;[art by: Katia Managan]
-(set: $next_weapon to $weapon&#39;s next)
-(if: not ($next_weapon is 0))[
-(set: $nwn to $next_weapon&#39;s id)
+
 [[buy $nwn-&gt;buy]] ((print: $next_weapon&#39;s cost) coins, does (print: $next_weapon&#39;s damage) damage)]
-[[go back home|main]]</tw-passagedata><tw-passagedata pid="10" name="collect spoils" tags="" position="616,969" size="100,100">(set: $coins to $coins + $spoils) 
+
+&lt;img src=&quot;media/images/Khajiit_animation artist_Katia_Managan_pixel_art.gif&quot; alt=&quot;Khajit appearing and using invisible cloak by Katia Managan&quot; style=&quot;display: block; margin-right:auto; width:50%&quot;&gt;
+[art by: Katia Managan]
+
+[[go back home|main]]
+
+&lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/ay6LqF-tvHU?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="10" name="collect spoils" tags="" position="616,969" size="100,100">(set: $coins to $coins + $spoils) 
 (display: &quot;main&quot;)</tw-passagedata><tw-passagedata pid="11" name="buy" tags="" position="951,468" size="100,100">(if: $coins &gt; ($next_weapon&#39;s cost))[(set: $weapon to $next_weapon) (set: $coins to $coins - ($weapon&#39;s cost)) (display: &quot;shop&quot;)]
 (else:)[You don&#39;t haz enough coin! 
 
-(display: &quot;shop&quot;)]</tw-passagedata><tw-passagedata pid="12" name="credits" tags="" position="736,683" size="100,100">Thanks to Chris at &lt;a href=&quot;http://lambdamaphone.blogspot.com/2015/02/using-twine-for-games-research-part-ii.html&quot;&gt; Twine/Harlowe RPG Tutorial&lt;/a&gt;
+(display: &quot;shop&quot;)]
+
+&lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/ay6LqF-tvHU?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="12" name="credits" tags="" position="736,683" size="100,100">&lt;marquee behavior=&quot;scroll&quot; direction=&quot;up&quot;&gt;Special Thanks to Chris at &lt;a href=&quot;http://lambdamaphone.blogspot.com/2015/02/using-twine-for-games-research-part-ii.html&quot;&gt; Twine/Harlowe RPG Tutorial&lt;/a&gt;
 
 Additional shop and rest dialogue by VictorY.
 
-Art:
+Narration:
+Selude ASMR &lt;a href=&quot;https://linktr.ee/seludeasmr&quot;&gt;Link Tree&lt;/a&gt;
+
+Khajit Pixel Art by:
 Katia Managan
 &lt;a href=&quot;https://www.prequeladventure.com/fanartbooru/post/view/3856&quot;&gt;Prequel Adventure Fanart or Drawing a Cat: the Adventure&lt;/a&gt;
 
-Music:
+Kobold and Adventurer Pixel Art by:
+Rvros &lt;a href=&quot;https://rvros.itch.io/&quot;&gt;Itch.io Creater Page&lt;/a&gt;
 
-April 2021 </tw-passagedata></tw-storydata>
+Music:
+Various artists and composers of classic video game OSTs
+&lt;a href=&quot;https://www.youtube.com/embed/l4hnR1_rbuI&quot;&gt;Campfire&lt;/a&gt;
+&lt;a href=&quot;https://www.youtube.com/embed/Mq8E_1LkoAc&quot;&gt;Nightmare&lt;/a&gt;
+&lt;a href=&quot;https://www.youtube.com/embed/e8SWRAr0O8Q&quot;&gt;Fight&lt;/a&gt;
+&lt;a href=&quot;https://www.youtube.com/embed/ay6LqF-tvHU&quot;&gt;Shop&lt;/a&gt;
+&lt;a href=&quot;https://www.youtube.com/embed/-YCN-a0NsNk&quot;&gt;Spoils&lt;/a&gt;
+&lt;a href=&quot;https://www.youtube.com/embed/5vB7kSyuJ6U&quot;&gt;Death&lt;/a&gt;
+
+April 2021 
+&lt;/marquee&gt;
+
+&lt;iframe width=&quot;0&quot; height=&quot;0&quot; src=&quot;https://www.youtube.com/embed/Egn_VNVKzI4?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">"use strict";var _slicedToArray=function(){return function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var n=[],r=!0,i=!1,a=void 0;try{for(var o,s=e[Symbol.iterator]();!(r=(o=s.next()).done)&&(n.push(o.value),!t||n.length!==t);r=!0);}catch(e){i=!0,a=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw a}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}!function(){
 /**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
